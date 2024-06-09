@@ -1,0 +1,35 @@
+Problem Description:
+
+The function accepts an integer array ‘arr’ of size ‘n’ as its argument. The function needs to return the index of an equilibrium point in the array,
+where the sum of elements on the left of the index is equal to the sum of elements on the right of the index.If no equilibrium point exists, the function should return -1.
+
+Example
+Input| n=5 | arr= 1 3 5 6 7 
+Output| 3
+
+Code
+#include <stdio.h>
+int findEquilibrium(int arr[], int n) {
+int totalSum =0, leftSum = 0;
+for (int i = 0; i < n; i++)
+totalSum += arr[i];
+for (int i = 0; i < n; i++) {
+  totalSum = arr[i];
+  if (leftSum == totalSum)
+  return i;
+  leftSum += arr[i];
+}
+
+return -1;
+
+}
+
+int main() {
+
+int n = 5;
+
+int arr[] = {1, 3, 5, 7, 3};
+printf("%d\n", findEquilibrium(arr, n)); 
+return 0;
+}
+
